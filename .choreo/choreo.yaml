@@ -2,8 +2,22 @@ version: 1.0.0
 components:
   - name: web-app
     type: webapp
-    path: web-app
+    source:
+      location: ./app # Adjust the path to where your web app files are located
+    build:
+      commands:
+        - npm install
+        - npm run build
+    run:
+      command: npm start
   - name: server
     type: service
-    path: server
+    source:
+      location: ./server # Adjust the path to where your server files are located
+    build:
+      commands:
+        - npm install
+        - npm run build
+    run:
+      command: npm start
 
