@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  app:
+    # Build the image using the provided Dockerfile
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: build  # Use the 'build' stage for the final image
+      secrets:
+        - source: SENTRY_AUTH_TOKEN
+          target: /run/secrets/SENTRY_AUTH_TOKEN
+    environment:
+      - FLY=true
+      - LITEFS_DIR=/litefs
+      - DATABASE_FILENAME=sqlite.db
+      - DATABASE_PATH=/litefs/sqlite.db
+      - DATABASE_URL=file:/litefs/sqlite.db
+      - INTERNAL_PORT=8080
+      - PORT=8081
+      - NODE_ENV=production
+      - PRISMA_SCHEMA_DISABLE_ADVISORY_LOCK=1
+      - CACHE_DATABASE_FILENAME=cache.db
+      - CACHE_DATABASE_PATH=/litefs/cache.db
+    ports:
+      - "8081:8081"  # Map port 8081 on the host to port 8081 in the container
+    volumes:
+      - litefs-data:/litefs  # Volume for LiteFS data
+    command: ["litefs", "mount"]
+
+volumes:
+  litefs-data:
+    driver: local
+
+secrets:
+  SENTRY_AUTH_TOKEN:
+    file: ./secrets/sentry_auth_token.txt
