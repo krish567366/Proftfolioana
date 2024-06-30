@@ -1,0 +1,9 @@
+version: 1.0.0
+components:
+  - name: web-app
+    type: webapp
+    path: web-app
+  - name: server
+    type: service
+    path: server
+
