@@ -1,5 +1,5 @@
 # base node image
-FROM node:20-bookworm-slim as base
+FROM node:16.13-alpine as base
 
 # install open ssl and sqlite3 for prisma
 # ffmpeg for the call kent functionality
@@ -8,7 +8,7 @@ FROM node:20-bookworm-slim as base
 # python & make for node-gyp
 RUN apt-get update && apt-get install -y fuse3 openssl ffmpeg sqlite3 ca-certificates procps python3 make g++
 
-# install all node_modules, including dev
+	# install all node_modules, including dev
 FROM base as deps
 
 RUN mkdir /app/
