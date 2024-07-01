@@ -16,7 +16,10 @@ WORKDIR /app/
 
 ADD package.json .npmrc package-lock.json ./
 ADD other/patches ./other/patches
-RUN npm install
+RUN npm config set fetch-retries 5
+RUN npm config set fetch-retry-factor 10
+RUN npm config set fetch-retry-mintimeout 10000
+RUN npm install || cat /root/.npm/_logs/*debug.log
 
 # setup production node_modules
 FROM base as production-deps
@@ -95,3 +98,4 @@ ADD other/litefs.yml /etc/litefs.yml
 RUN mkdir -p /data ${LITEFS_DIR}
 
 CMD ["litefs", "mount"]
+
