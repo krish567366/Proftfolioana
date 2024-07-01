@@ -41,7 +41,7 @@ esbuild
 	.build({
 		entryPoints: entries,
 		outdir,
-		target: [`node${pkg.engines.node}`],
+		target: ['chrome58', 'firefox57', 'afari11', 'edge16'],
 		platform: 'node',
 		sourcemap: true,
 		format: 'esm',
