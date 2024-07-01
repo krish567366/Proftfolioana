@@ -28,7 +28,7 @@
     "prebuild": "npm run clean && echo All clean ✨",
     "build": "run-s build:*",
     "build:remix": "vite build --sourcemap && vite build --ssr --sourcemap",
-    "build:server": "tsx ./other/build-server.ts",
+    "build:server": "tsx ./other/build-server.ts --loader:ts=ts",
     "build:info": "tsx ./other/generate-build-info",
     "dev": "node ./server/dev-server.js",
     "runfile": "tsx ./other/runfile.js",
