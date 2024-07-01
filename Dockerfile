@@ -13,7 +13,8 @@ FROM base as deps
 
 RUN mkdir /app/
 WORKDIR /app/
-
+COPY package*.json ./
+COPY . .
 ADD package.json .npmrc package-lock.json ./
 RUN ls -l package-lock.json
 ADD other/patches ./other/patches
