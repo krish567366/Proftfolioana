@@ -15,6 +15,7 @@ RUN mkdir /app/
 WORKDIR /app/
 
 ADD package.json .npmrc package-lock.json ./
+RUN ls -l package-lock.json
 ADD other/patches ./other/patches
 RUN npm config set fetch-retries 5
 RUN npm config set fetch-retry-factor 10
@@ -29,6 +30,7 @@ WORKDIR /app/
 
 COPY --from=deps /app/node_modules /app/node_modules
 ADD package.json .npmrc package-lock.json /app/
+RUN ls -l package-lock.json
 RUN npm prune --omit=dev
 
 # build app
