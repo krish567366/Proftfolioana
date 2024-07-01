@@ -1,5 +1,5 @@
 {
-  "name": "kentcdodds.com",
+  "name": "Portfolioana",
   "version": "1.0.0",
   "engines": {
     "node": "20",
@@ -12,15 +12,15 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kentcdodds/kentcdodds.com.git"
+    "url": "git+https://github.com/krish567366/Proftfolioana.git"
   },
   "keywords": [],
-  "author": "Kent C. Dodds <me@kentcdodds.com> (https://kentcdodds.com/)",
+  "author": "Krishna Bajpai",
   "license": "GPL-3.0-only",
   "bugs": {
-    "url": "https://github.com/kentcdodds/kentcdodds.com/issues"
+    "url": "https://github.com/krish567366/Proftfolioana.git/issues"
   },
-  "homepage": "https://github.com/kentcdodds/kentcdodds.com#readme",
+  "homepage": "https://github.com/krish567366/Proftfolioana.git#readme",
   "type": "module",
   "scripts": {
     "postinstall": "patch-package --patch-dir other/patches",
