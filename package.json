@@ -1,8 +1,8 @@
 {
-  "name": "Portfolioana",
+  "name": "kentcdodds.com",
   "version": "1.0.0",
   "engines": {
-    "node": ">=16.13",
+    "node": "20",
     "npm": ">=10"
   },
   "imports": {
@@ -12,15 +12,15 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/krish567366/Proftfolioana.git"
+    "url": "git+https://github.com/kentcdodds/kentcdodds.com.git"
   },
   "keywords": [],
-  "author": "Krishna Bajpai",
+  "author": "Kent C. Dodds <me@kentcdodds.com> (https://kentcdodds.com/)",
   "license": "GPL-3.0-only",
   "bugs": {
-    "url": "https://github.com/krish567366/Proftfolioana.git/issues"
+    "url": "https://github.com/kentcdodds/kentcdodds.com/issues"
   },
-  "homepage": "https://github.com/krish567366/Proftfolioana.git#readme",
+  "homepage": "https://github.com/kentcdodds/kentcdodds.com#readme",
   "type": "module",
   "scripts": {
     "postinstall": "patch-package --patch-dir other/patches",
@@ -28,7 +28,7 @@
     "prebuild": "npm run clean && echo All clean ✨",
     "build": "run-s build:*",
     "build:remix": "vite build --sourcemap && vite build --ssr --sourcemap",
-    "build:server": "tsx ./other/build-server.ts --loader:ts=ts --platform=browser",
+    "build:server": "tsx ./other/build-server.ts",
     "build:info": "tsx ./other/generate-build-info",
     "dev": "node ./server/dev-server.js",
     "runfile": "tsx ./other/runfile.js",
